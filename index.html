@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>zabbix API test</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap -->
+    <link href="bootstrap-3.3.2-dist/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="http://code.jquery.com/jquery.js"></script>
+    
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="bootstrap-3.3.2-dist/css/bootstrap.min.css">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="bootstrap-3.3.2-dist/css/bootstrap-theme.min.css">
+    <!-- Latest compiled and minified JavaScript --> 
+    <script src="bootstrap-3.3.2-dist/js/bootstrap.min.js"></script>
+    <!-- login UI JS -->
+    <!-- <script src="login.js"></script> -->
+    <script type="text/javascript" charset="utf-8" src="login.js"></script>
+    
+  </head>
+
+  <body>
+    <!--Pulling Awesome Font -->
+  <link href="font-awesome.min.css" rel="stylesheet">
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-offset-5 col-md-3">
+        <div class="form-login">
+          <h4>zabbix API</h4>
+            <from method="post" action="http://192.168.80.129/zabbix/api_jsonrpc.php">
+              <p><input type="text" id="username" class="form-control input-sm chat-input" placeholder="username" /></p>
+              <P><input type="password" id="password" class="form-control input-sm chat-input" placeholder="password" /></P>
+              <div class="wrapper">
+                <button type="button" class="btn btn-primary btn-md" onclick="btn_login()">
+                  login
+                </button>
+            </from>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    
+    <script src="bootstrap-3.3.2-dist/js/bootstrap.min.js"></script>
+  </body>
+</html>
