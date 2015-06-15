@@ -60,10 +60,18 @@ console.log("request = " + request);
           var respData = JSON.parse(xhr.responseText);
         console.log(respData);
         console.log("responseText.result = ",respData.result);
-        break;
+//          document.location = "table.html";
+//        break;
+  var requestHost = '{"jsonrpc":"2.0","method":"host.get","params":{"output":"extend"},"auth":"' + respData.result + '","id":2}';
+  xhr.send(requestHost);
+console.log(xhr);
     };
   };
+
   
+  var requestHost = '{"jsonrpc":"2.0","method":"host.get","params":{"output":"extend"},"auth":"' + respData.result + '","id":2}';
+  xhr.send(requestHost);
+console.log(xhr);
 
 
 }
