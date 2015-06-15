@@ -34,39 +34,36 @@ console.log("request = " + request);
 
   // XMLHttpRequest オブジェクトを作成
   var xhr = new XMLHttpRequest();
-  xhr.open("POST",zabbixURL,false);
+  xhr.open("POST",zabbixURL);
 
   xhr.setRequestHeader("Content-Type","application/json-rpc");
+  xhr.send(request);
 
-  
+  // 出力テスト
   xhr.onreadystatechange = function (){
     switch(xhr.readyState){
       case 1:
+        console.log("xhr.readyState = ",xhr.readyState);
         console.log("open() メソッドの呼び出しが完了した");
         break;
       case 2:
+        console.log("xhr.readyState = ",xhr.readyState);
         console.log("レスポンスヘッダの受信が完了した")
         break;
       case 3:
+        console.log("xhr.readyState = ",xhr.readyState);
         console.log("レスポンスボディを受信中（繰り返し実行される）");
         break;
       case 4:
+        console.log("xhr.readyState = ",xhr.readyState);
         console.log("XHR 通信が完了した（成功失敗に関わらず）");
+          var respData = JSON.parse(xhr.responseText);
+        console.log(respData);
+        console.log("responseText.result = ",respData.result);
         break;
     };
   };
   
-  xhr.send(request);
-
-
-console.log("xhr_01 = ", xhr);
-console.log(xhr.readyState);
-console.log(JSON.stringify(xhr.responseText));
-console.log(xhr.responseText);
-
-  // 出力テスト
-  var data = JSON.parse(xhr.responseText);
-console.log(data);
 
 
 }
