@@ -60,19 +60,51 @@ console.log("request = " + request);
           var respData = JSON.parse(xhr.responseText);
         console.log(respData);
         console.log("responseText.result = ",respData.result);
+
 //          document.location = "table.html";
 //        break;
-  var requestHost = '{"jsonrpc":"2.0","method":"host.get","params":{"output":"extend"},"auth":"' + respData.result + '","id":2}';
-  xhr.send(requestHost);
-console.log(xhr);
+
+console.log("---------------------");
+          var xhrHost = new XMLHttpRequest();
+          var requestHost = '{"jsonrpc":"2.0","method":"host.get","params":{"output":"extend"},"auth":"' + respData.result + '","id":1}';
+        console.log(requestHost);
+          xhrHost.open("POST",zabbixURL);
+          xhrHost.setRequestHeader("Content-Type","application/json-rpc");
+          xhrHost.send(requestHost);
+        console.log(xhrHost);
+
+          xhrHost.onreadystatechange = function (){
+            switch(xhrHost.readyState){
+              case 1:
+                console.log("xhrHost.readyState = ",xhrHost.readyState);
+                console.log("open() メソッドの呼び出しが完了した");
+                break;
+              case 2:
+                console.log("xhrHost.readyState = ",xhrHost.readyState);
+                console.log("レスポンスヘッダの受信が完了した")
+                break;
+              case 3:
+                console.log("xhrHost.readyState = ",xhrHost.readyState);
+                console.log("レスポンスボディを受信中（繰り返し実行される）");
+                break;
+              case 4:
+                console.log("xhrHost.readyState = ",xhrHost.readyState);
+                console.log("XHR 通信が完了した（成功失敗に関わらず）");
+                  var respHost = JSON.parse(xhrHost.responseText);
+                console.log(respHost);
+                console.log("responseText.result = ",respHost.result);
+                break;
+            };
+          };
+
     };
   };
 
+
+
   
-  var requestHost = '{"jsonrpc":"2.0","method":"host.get","params":{"output":"extend"},"auth":"' + respData.result + '","id":2}';
-  xhr.send(requestHost);
-console.log(xhr);
-
-
+  
+  
+  
 }
 
