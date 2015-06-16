@@ -61,12 +61,9 @@ console.log("request = " + request);
         console.log(respData);
         console.log("responseText.result = ",respData.result);
 
-//          document.location = "table.html";
-//        break;
-
-console.log("---------------------");
+console.log("----------- respData ----------");
           var xhrHost = new XMLHttpRequest();
-          var requestHost = '{"jsonrpc":"2.0","method":"host.get","params":{"output":"extend"},"auth":"' + respData.result + '","id":1}';
+          var requestHost = '{"jsonrpc":"2.0","method":"host.get","params":{"output":"extend"},"auth":"' + respData.result + '","id":2}';
         console.log(requestHost);
           xhrHost.open("POST",zabbixURL);
           xhrHost.setRequestHeader("Content-Type","application/json-rpc");
@@ -93,9 +90,17 @@ console.log("---------------------");
                   var respHost = JSON.parse(xhrHost.responseText);
                 console.log(respHost);
                 console.log("responseText.result = ",respHost.result);
+                  var respHostNum = Object.keys(respHost.result).length;
+                console.log("respHostNum = ",respHostNum);
+                  var hostNameObj = respHost.result;
+                  var hostName    = hostNameObj[0].name;
+                console.log("hostName = ", hostName);
+//          document.location = "table.html";
                 break;
             };
           };
+
+        break;
 
     };
   };
