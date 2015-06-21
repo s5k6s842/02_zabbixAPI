@@ -1,6 +1,6 @@
 function btn_login(){
 
-  var zabbixURL = "http://192.168.80.129/zabbix/api_jsonrpc.php"; 
+  var zabbixURL = "http://192.168.1.32/zabbix/api_jsonrpc.php"; 
   var userName  = $("#username").val();
   var userPass  = $("#password").val();
 
@@ -95,7 +95,7 @@ console.log("----------- respData ----------");
                   var hostNameObj = respHost.result;
                   var hostName    = hostNameObj[0].name;
                 console.log("hostName = ", hostName);
-//          document.location = "table.html";
+//                document.location = "table.html";
                 break;
             };
           };
@@ -105,11 +105,5 @@ console.log("----------- respData ----------");
     };
   };
 
-
-
-  
-  
-  
-  
 }
 
